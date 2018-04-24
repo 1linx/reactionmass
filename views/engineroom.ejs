@@ -4,12 +4,59 @@
 <head>
   <!-- jQuery -->
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <!-- static link to custom page js -->
+  <script src="assets/js/scripts.js"></script>
   <!-- static link to custom site css -->
   <link rel="stylesheet" href="assets/css/style.css"></style>
   <meta charset="UTF-8">
   <title>Burn</title>
 </head>
 <body>
-<p>Hello World!</p>
+<main>
+  <nav>
+    <!-- NAV STUFF GOES HERE -->
+  </nav>
+  <form class="calc-form">
+  <h3>Navigation Calculations</h3>
+  <div class="calculator">
+
+    <div class="left-col">
+        <h2>Values</h2>
+        Total distance to Travel, s-zero (km)<input type="number" id="travel-dist" value="54600000" required><br>
+        Acceleration burn in gravities, G-one<input type="number" id="accel-g" value="1" required><br>
+        Starting Veloctiy, v-zero (km/h)<input type="number" id="start-vel" value = "0" required><br>
+        Travel velocity, v-one (km/h)<input type="number" id="travel-vel" value="30000" required><br>
+        Deceleration burn, G-two<input type="text" id="deccel-burn" value="1" required><br>
+        Target velocity, v-two (km/h)<input type="number" id="target-vel" value="0" required><br>
+
+
+    </div>
+
+    <div class="right-col">
+      <h2>Calculated Values</h2>
+      Initial Delta v (m/s)<input type="number" id="acc-init-delta"><br>
+      Time of burn (m)<input type="number" id="acc-time-burn"><br>
+      Distance travelled (km)<input type="number" id="acc-dist-travel"><br>
+
+      Braking Delta v (m/s)<input type="number" id="decel-brake-delta"><br>
+      Time of burn (m)<input type="number" id="decel-time-burn"><br>
+      Distance travelled (km)<input type="number" id="decel-dist-travel"><br>
+
+      Distance travelled at velocity v-one (km)<input type="number" id="total-dist-travel"><br>
+      Time at desired velocity v-one (hours)<input type="number" id="total-vel"><br>
+    </div>
+    <div>
+      <h2>Totals</h2>
+
+      Total time of travel (hours)<input type="number" id="total-travel-hours"><br>
+      Total time of travel (weeks)<input type="number" id="total-travel-weeks"><br>
+    </div>
+  </div>
+  <div class="results">
+  <input type="submit" id="commit-calc" value="Calculate"></input>
+  <span id="calc-result"><span>
+  </div>
+  <form>
+</main>
 </body>
 </html>

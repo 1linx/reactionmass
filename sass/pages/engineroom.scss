@@ -1,6 +1,29 @@
-p {
+main, h1, h2, h3, h4, h5, p, a, span {
   color: white;
 }
 body {
   background-color: black;
+}
+
+
+h3 {
+  margin: 0 10vw;
+  width: 100%;
+}
+.calculator {
+  display: flex;
+  margin: 0 10vw;
+    .left-col, .right-col {
+      flex: 1;
+      background-color: grey;
+      border: 1px solid white;
+  }
+}
+
+.results {
+  margin: 0 10vw;
+  #calc-result{
+    color: black;
+    background-color: white;
+  }
 }
