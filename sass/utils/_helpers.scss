@@ -1,0 +1,29 @@
+/*HELPERS*/
+/*Flex*/
+.flex {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+}
+.flex-col {
+    @include flex-direction(column);
+}
+
+.flex-col-container {
+    height:100%;
+    @include flexbox;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);   
+}
+
+
+.flex-shim {
+    @include flex(0);
+}
+
+.flex-centred {
+ @include flex(0 1 auto);
+ min-height:0;
+}

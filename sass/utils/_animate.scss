@@ -1,0 +1,44 @@
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+@mixin animate($name, $duration, $iteration, $direction, $fillmode) {
+    -webkit-animation-duration: $duration;
+    -moz-animation-duration: $duration;
+    animation-duration: $duration;
+    -webkit-animation-iteration-count: $iteration;
+    -moz-animation-iteration-count: $iteration;
+    animation-iteration-count: $iteration;
+    -webkit-animation-name: $name;
+    -moz-animation-name: $name;
+    animation-name: $name;
+    -webkit-animation-direction: $direction;
+    -moz-animation-direction: $direction;
+    animation-direction: $direction;
+    -webkit-animation-fill-mode: $fillmode;
+    -moz-animation-fill-mode: $fillmode;
+    animation-fill-mode: $fillmode;
+}
+/*BUTTON SQUASH*/
+@include keyframes(transIn) {
+    from {
+        transform:translateX(-50%)
+    }
+    to {
+        transform:translateX(0)
+    }
+}
+@mixin transIn {
+    @include animate(transIn, 0.5s, 1, normal, forwards);
+}
+
+.trans-in {
+    @include transIn;
+}

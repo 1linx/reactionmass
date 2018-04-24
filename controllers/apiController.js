@@ -12,9 +12,11 @@ module.exports = function(app) {
 app.get('/', function(req, res) {
         res.render('hello');
 });
+app.get('/eng', function(req, res) {
+        res.render('engineroom');
+});
 
 
 //static route - style, js, images, etc
-app.use('/static', express.static('./public'));
-
+app.use('/assets', express.static('./public'));
 };
