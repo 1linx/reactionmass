@@ -10,12 +10,6 @@
 
 })(jQuery);// JavaScript Document
 
-
-
-function debug(desc, input) {
-  console.log(desc + ': ' + input);
-}
-
 function runTravelCalc() {
 
   var calcInputValues = {
@@ -59,24 +53,39 @@ function runTravelCalc() {
   var decelbrakedelta = ((calcInputValues['travelvel']-calcInputValues['targetvel'])*1000)/3600;
   var deceltimeburn = (decelbrakedelta/(calcInputValues['deccelburn']*9.82))/60;
   var deceldisttravel = (0.5*(calcInputValues['deccelburn']*9.82)*((deceltimeburn*60)*(deceltimeburn*60)))/1000;
-  console.log(deceldisttravel);
-  $(calcOutputFields['accinitdelta']).val(accinitdelta);
-  $(calcOutputFields['acctimeburn']).val(acctimeburn);
-  $(calcOutputFields['accdisttravel']).val(accdisttravel);
-  $(calcOutputFields['decelbrakedelta']).val(decelbrakedelta);
-  $(calcOutputFields['deceltimeburn']).val(deceltimeburn);
-  $(calcOutputFields['deceldisttravel']).val(deceldisttravel);
+
+  $(calcOutputFields['accinitdelta']).val(round(accinitdelta));
+  $(calcOutputFields['acctimeburn']).val(round(acctimeburn));
+  $(calcOutputFields['accdisttravel']).val(round(accdisttravel));
+  $(calcOutputFields['decelbrakedelta']).val(round(decelbrakedelta));
+  $(calcOutputFields['deceltimeburn']).val(round(deceltimeburn));
+  $(calcOutputFields['deceldisttravel']).val(round(deceldisttravel));
 
   var totaldisttravel = (calcInputValues['traveldist'])-(accdisttravel+deceldisttravel);
   var totalvel = (totaldisttravel*1000)/(calcInputValues['travelvel']*3600);
 
-  $(totalFields['totaldisttravel']).val(totaldisttravel);
-  $(totalFields['totalvel']).val(totalvel);
+  $(totalFields['totaldisttravel']).val(round(totaldisttravel));
+  $(totalFields['totalvel']).val(round(totalvel));
 
   var totalTravelHours = acctimeburn+deceltimeburn+totalvel;
   var totalTravelWeeks = totalTravelHours/168;
 
-  $(sumTotalFields['totalTravelHours']).val(totalTravelHours);
-  $(sumTotalFields['totalTravelWeeks']).val(totalTravelWeeks);
+  $(sumTotalFields['totalTravelHours']).val(round(totalTravelHours));
+  $(sumTotalFields['totalTravelWeeks']).val(round(totalTravelWeeks));
 
+}
+
+function debug(desc, input) {
+  console.log(desc + ': ' + input);
+}
+
+function round(number, precision = 2) {
+  var shift = function (number, precision, reverseShift) {
+    if (reverseShift) {
+      precision = -precision;
+    }
+    var numArray = ("" + number).split("e");
+    return +(numArray[0] + "e" + (numArray[1] ? (+numArray[1] + precision) : precision));
+  };
+  return shift(Math.round(shift(number, precision, false)), precision, true);
 }

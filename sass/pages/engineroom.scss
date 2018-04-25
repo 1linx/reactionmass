@@ -1,5 +1,11 @@
-main, h1, h2, h3, h4, h5, p, a, span {
+main, h1, h2, h3, h4, h5, p, a, span,  {
   color: white;
+  font-family: $ff-body;
+  text-shadow: 0 0 2px #FFF, 0 0 1px #0000AA;
+}
+text, input {
+  font-size: 1.2rem;
+  font-family: $ff-values;
 }
 body {
   background-color: black;
@@ -16,14 +22,19 @@ h3 {
     .left-col, .right-col {
       flex: 1;
       background-color: grey;
-      border: 1px solid white;
+      // border: 1px solid white;
+      padding-top: 1rem;
+      padding-left: 1rem;
+      li {
+        margin: 1rem, auto;
+      }
   }
 }
 
 .results {
   margin: 0 10vw;
   #calc-result{
-    color: black;
+    color: #7c788a;
     background-color: white;
   }
 }
