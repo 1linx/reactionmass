@@ -1,11 +1,13 @@
 var app = require('express')();
-// var http = require('http').Server(app);
-// var port = process.env.PORT || 3000;
-
-var apiController = require('./controllers/apiController');
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
+var expressSanitizer = require('express-sanitizer');
+// Mount express-sanitizer here
+app.use(expressSanitizer());
+
+
+var apiController = require('./controllers/apiController');
 
 apiController(app);
 

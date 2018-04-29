@@ -6,7 +6,53 @@
           runTravelCalc();
       });
 
+      $('#createForm').submit(function(e){
+        console.log('Creating:');
+        console.log($('#createForm').serialize());
+        e.preventDefault();
+        $.ajax({
+          url:'/api/v1/post/',
+          type:'post',
+          data:$('#createForm').serialize(),
+          success:function(){
+            console.log('success');
+          return false;
+          }
+        });
+      });
+
+      $('#delForm').submit(function(e){
+        console.log('Deleting:');
+        console.log($('#delForm').serialize());
+        e.preventDefault();
+        $.ajax({
+          url:'/api/v1/delete/',
+          type:'delete',
+          data:$('#delForm').serialize(),
+          success:function(){
+            console.log('success');
+          return false;
+          }
+        });
+      });
+
+      $('#fuelForm').submit(function(e){
+          console.log('Submitted: ');
+          console.log($('#fuelForm').serialize());
+        e.preventDefault();
+        $.ajax({
+        url:'/api/v1/put/',
+        type:'put',
+        data:$('#fuelForm').serialize(),
+        success:function(){
+          console.log('success');
+        return false;
+        }
+        });
+      });
     });
+
+
 
 })(jQuery);// JavaScript Document
 
@@ -89,3 +135,8 @@ function round(number, precision = 2) {
   };
   return shift(Math.round(shift(number, precision, false)), precision, true);
 }
+
+setTimeout(function() {
+  console.log('tick');
+  $('#wrapper').css('filter', 'blur(10px)');
+}, 3000);
