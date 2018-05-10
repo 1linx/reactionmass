@@ -1,4 +1,4 @@
-<!-- views/hello.ejs -->
+<div><!-- views/engineroom.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +15,19 @@
 </head>
 <body>
   <div id="overlay"></div>
+  <div id="background-image"></div>
+    <nav>
+        <div id="dist-tab" class="nav-btn selected">Distance</div>
+        <div id="burn-tab" class="nav-btn">Burn</div>
+        <div id="mgmt-tab" class="nav-btn">Management</div>
+    </nav>
   <div id="wrapper">
-    <main id="content">
-      <nav>
-        <!-- NAV STUFF GOES HERE -->
-      </nav>
+    <main class="content" id="dist-cont">
 
       <!-- TESTING! -->
-      Fuelmass: <%=data.fuelmass %>
+      <script>
+        console.log("Fuelmass: <%=data.fuelmass %>");
+      </script>
 
 
       <!-- <form id="fuelForm" name ="fuelForm" action="">
@@ -46,49 +51,142 @@
       </form> -->
 
       <form class="calc-form">
-        <h3>Navigation Calculations</h3>
-        <div class="calculator">
+        <div class="calculator" style="">
+          <!-- <h3>Navigation Calculations</h3> -->
 
-          <div class="left-col">
-              <h2>Values</h2>
-              <ul>
-              <li>Total distance to Travel, s-zero (km)<input type="number" id="travel-dist" value="54600000" required></li>
-              <li>Acceleration burn in gravities, G-one<input type="number" id="accel-g" value="1" required></li>
-              <li>Starting Veloctiy, v-zero (km/h)<input type="number" id="start-vel" value = "0" required></li>
-              <li>Travel velocity, v-one (km/h)<input type="number" id="travel-vel" value="30000" required></li>
-              <li>Deceleration burn, G-two<input type="text" id="deccel-burn" value="1" required></li>
-              <li>Target velocity, v-two (km/h)<input type="number" id="target-vel" value="0" required></li>
-              </ul>
+
+          <div class="input">
+              <!-- <h2>Values</h2> -->
+              <div class="input-vals">
+              <div>
+                <span class="description">Total distance to Travel, s-zero (km)</span>
+              </div>
+              <div>
+                  <input type="text" id="travel-dist" value="54600000" required>
+              </div>
+              <div>
+                <span class="description">Acceleration burn in gravities, G-one</span>
+              </div>
+              <div>
+                  <input type="text" id="accel-g" value="1" required>
+              </div>
+              <div>
+                <span class="description">Starting Veloctiy, v-zero (km/h)</span>
+              </div>
+              <div>
+                  <input type="text" id="start-vel" value = "0" required>
+              </div>
+              <div>
+                <span class="description">Travel velocity, v-one (km/h)</span>
+              </div>
+              <div>
+                  <input type="text" id="travel-vel" value="30000" required>
+              </div>
+              <div>
+                <span class="description">Deceleration burn, G-two</span>
+              </div>
+              <div>
+                  <input type="text" id="deccel-burn" value="1" required>
+              </div>
+              <div>
+                <span class="description">Target velocity, v-two (km/h)</span>
+              </div>
+              <div>
+                  <input type="text" id="target-vel" value="0" required>
+              </div>
+            </div>
 
 
           </div>
 
-          <div class="right-col">
-            <h2>Calculated Values</h2>
-            Initial Delta v (m/s)<input type="number" id="acc-init-delta"><br>
-            Time of burn (m)<input type="number" id="acc-time-burn"><br>
-            Distance travelled (km)<input type="number" id="acc-dist-travel"><br>
 
-            Braking Delta v (m/s)<input type="number" id="decel-brake-delta"><br>
-            Time of burn (m)<input type="number" id="decel-time-burn"><br>
-            Distance travelled (km)<input type="number" id="decel-dist-travel"><br>
 
-            Distance travelled at velocity v-one (km)<input type="number" id="total-dist-travel"><br>
-            Time at desired velocity v-one (hours)<input type="number" id="total-vel"><br>
-          </div>
-          <div>
-            <h2>Totals</h2>
-
-            Total time of travel (hours)<input type="number" id="total-travel-hours"><br>
-            Total time of travel (weeks)<input type="number" id="total-travel-weeks"><br>
-          </div>
-        </div>
-        <div class="results">
-        <input type="submit" id="commit-calc" value="Calculate"></input>
-        <span id="calc-result"><span>
+          <!-- <div class="results">
+          <input type="submit" id="commit-calc" value="Commit"></input>
+          <span id="calc-result"><span> -->
       </div>
-      <form>
+    </form>
+    <div class="bottom-button">
+      <input type="button" id="commit-calc" value="Commit"></input>
+    </div>
   </main>
+
+  <div class="results-holder">
+    <div class="results" id="dist-results">
+      <!-- <h2>Calculated Values</h2> -->
+      <div class="output" id="dist-calcs">
+        <div>
+          <span>Initial Delta v (m/s)</span>
+        </div>
+        <div>
+          <input type="text" id="acc-init-delta">
+        </div>
+        <div>
+          <span>Time of burn (m)</span>
+        </div>
+        <div>
+          <input type="text" id="acc-time-burn">
+        </div>
+        <div>
+          <span>Distance travelled (km)</span>
+        </div>
+        <div>
+          <input type="text" id="acc-dist-travel">
+        </div>
+
+        <div>
+          <span>Braking Delta v (m/s)</span>
+        </div>
+        <div>
+          <input type="text" id="decel-brake-delta">
+        </div>
+        <div>
+          <span>Time of burn (m)</span>
+        </div>
+        <div>
+          <input type="text" id="decel-time-burn">
+        </div>
+        <div>
+          <span>Distance travelled (km)</span>
+        </div>
+        <div>
+          <input type="text" id="decel-dist-travel">
+        </div>
+
+        <div>
+          <span>Distance travelled at velocity v-one (km)</span>
+        </div>
+        <div>
+          <input type="text" id="total-dist-travel">
+        </div>
+        <div>
+          <span>Time at desired velocity v-one (hours)</span>
+        </div>
+        <div>
+          <input type="text" id="total-vel">
+        </div>
+        <div>
+          <span>Total time of travel (hours)</span>
+        </div>
+        <div>
+          <input type="text" id="total-travel-hours">
+        </div>
+        <div>
+          <span>Total time of travel (weeks)</span>
+        </div>
+        <div>
+          <input type="text" id="total-travel-weeks">
+        </div>
+
+      </div>
+
+
+      <div class="return-button">
+        <input type="button" id="dist-return" value="Return"></input>
+      </div>
+
+
+  </div>
 </div>
 </body>
 </html>

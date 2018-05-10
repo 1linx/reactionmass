@@ -3,7 +3,18 @@
       $('.calc-form');
       $('#commit-calc').click(function(e) {
           e.preventDefault();
+          $('.results-holder').show();
+          $('.calc-form').hide();
+          $('#wrapper').scrollTop(0);
+          $('.bottom-button').hide();
           runTravelCalc();
+      });
+
+      $('#dist-return').click(function(e) {
+          $('.results-holder').hide();
+          $('.calc-form').show();
+          $('#wrapper').scrollTop(0);
+          $('.bottom-button').show();
       });
 
       $('#createForm').submit(function(e){
@@ -51,6 +62,19 @@
         });
       });
     });
+    $('.input input').click(function() {
+      console.log('click');
+    })
+    $('.input input').each(function() {
+      $(this).click(function() {
+        console.log(this.value);
+      })
+    })
+
+    timerFunc(3000, true, '.bottom-button #commit-calc', 'background-color', 'rgba(255, 0, 0, 0.2)', 'rgba(200, 0, 0, 0)');
+
+    // random timed blur effect
+    // timerFunc(true, '0.5px');
 
 
 
@@ -136,7 +160,35 @@ function round(number, precision = 2) {
   return shift(Math.round(shift(number, precision, false)), precision, true);
 }
 
-setTimeout(function() {
-  console.log('tick');
-  $('#wrapper').css('filter', 'blur(10px)');
-}, 3000);
+function diceRoll(number, min, max) {
+    var diceRunningTotal = 0;
+    // console.log("Rolling a D" + max);
+	for (var numberOfRolls = 0; numberOfRolls < number; numberOfRolls++) {
+		var aSingleDie = (Math.random() * ((max + 1) - min) + min);
+		aSingleDie = Math.floor(aSingleDie);
+		// console.log("You rolled a " + aSingleDie);
+		diceRunningTotal += aSingleDie;
+	}
+	console.log("running total is " + diceRunningTotal);
+
+return diceRunningTotal;
+
+}
+function timerFunc(time, repeat = false, elem, style, value, resetVal) {
+  setTimeout(function() {
+    $(elem).css(style, value);
+    if (repeat) {
+      timerFunc(time, repeat, elem, style, resetVal, value);
+    }
+  }, time);
+}
+function timerFuncRand(bool, val) {
+  setTimeout(function() {
+    $('#wrapper').css('filter', 'blur(' + val + ')');
+    if (bool) {
+      timerFunc(false, '0px');
+    } else {
+      timerFunc(true, '1px');
+    }
+  }, diceRoll(1,1000, 5000));
+}
