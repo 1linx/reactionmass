@@ -22,13 +22,13 @@
         <div id="mgmt-tab" class="nav-btn">Management</div>
     </nav>
   <div id="wrapper">
-    <main class="content" id="dist-cont">
+    <section class="content" id="dist-cont">
 
-      <!-- TESTING! -->
-      <script>
+      <!-- CRUD TESTING -->
+
+      <!-- <script>
         console.log("Fuelmass: <%=data.fuelmass %>");
-      </script>
-
+      </script> -->
 
       <!-- <form id="fuelForm" name ="fuelForm" action="">
         <input type="hidden" name="rowId" value="fuelmass" />
@@ -50,13 +50,12 @@
         <input id="rowName" name="rowName" autocomplete="off" /><button>Delete</button>
       </form> -->
 
+      <!-- END TESTING -->
+
       <form class="calc-form">
         <div class="calculator" style="">
-          <!-- <h3>Navigation Calculations</h3> -->
-
 
           <div class="input">
-              <!-- <h2>Values</h2> -->
               <div class="input-vals">
               <div>
                 <span class="description">Total distance to Travel, s-zero (km)</span>
@@ -96,22 +95,16 @@
               </div>
             </div>
 
-
           </div>
 
-
-
-          <!-- <div class="results">
-          <input type="submit" id="commit-calc" value="Commit"></input>
-          <span id="calc-result"><span> -->
       </div>
     </form>
     <div class="bottom-button">
       <input type="button" id="commit-calc" value="Commit"></input>
     </div>
-  </main>
+  </section>
 
-  <div class="results-holder">
+  <section class="results-holder">
     <div class="results" id="dist-results">
       <!-- <h2>Calculated Values</h2> -->
       <div class="output" id="dist-calcs">
@@ -187,6 +180,6 @@
 
 
   </div>
-</div>
+</section>
 </body>
 </html>

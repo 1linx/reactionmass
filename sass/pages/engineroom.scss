@@ -1,7 +1,7 @@
 * {
     margin:0;
 }
-main, h1, h2, h3, h4, h5, p, a, span, nav {
+main, section, h1, h2, h3, h4, h5, p, a, span, nav {
   color: $white;
   font-family: $ff-body;
   text-shadow: 0 0 2px $white, 0 0 1px $c-glow;
@@ -19,7 +19,7 @@ body {
 
 
 nav {
-  min-height: 15vh;
+  min-height: 10vh;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -54,7 +54,7 @@ nav {
 
 #wrapper {
   position: absolute;
-  top: 15vh;
+  top: 10vh;
   left: 0;
   max-height: 85vh;
   min-height: 85vh;
@@ -71,7 +71,7 @@ nav {
   margin: 0 10vw;
   font-size: 1rem;
   position: relative;
-  top: 1rem;
+  top: 2em;
   @include bp-500 {
     font-size: 1rem;
     margin-top: 3em;
@@ -89,7 +89,7 @@ nav {
     font-size: 100%;
     border-color: rgba(0, 0, 0, 0);
     display: flex;
-    margin: 0 auto 0.5em;
+    margin: 0 auto 2.5em;
     cursor: pointer;
     transition: background-color 3s;
     @include bp-500 {
@@ -109,15 +109,21 @@ nav {
     .return-button {
         display: flex;
         justify-content: center;
+        position: relative;
+        bottom: 1em;
         input {
           padding: 20px;
           width: 60vw;
           background-color: rgba(255, 0, 0, 0.2);
           color: white;
           font-size: 100%;
-          margin: 0 auto 0.5em;
+          margin: 0 auto 2.5em;
           cursor: pointer;
           border-radius: 0;
+          width: 65vw;
+          @include bp-500 {
+            width: 30vw;
+          }
         }
         input:hover {
             box-shadow: inset $c-alert 0 0 50px 1px;
@@ -164,16 +170,20 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: 0 auto 1em;
+  padding: 0 1.5em;
   @include bp-500 {
     flex-direction: row;
-    justify-content: space-evenly;
+    padding: 0;
+    justify-content: center;
   }
 
   div {
     margin-bottom: 0.5em;
     @include bp-500 {
+      margin-bottom: 2em;
       width: 40vw;
+      height: 2em;
     }
   }
   div:nth-child(odd) {
@@ -183,13 +193,17 @@ nav {
   div:nth-child(even) {
     // flex: 0 0 30%;
     text-align: right;
+    @include bp-500 {
+      text-align: center;
+    }
     margin-bottom: 2em;
   }
 
     input {
       font-size: 1.5em;
-      @include bp-700 {
+      @include bp-500 {
         font-size: 1.5em;
+        width: 100%;
       }
     }
 
