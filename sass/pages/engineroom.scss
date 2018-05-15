@@ -6,7 +6,7 @@ main, section, h1, h2, h3, h4, h5, p, a, span, nav {
   font-family: $ff-body;
   text-shadow: 0 0 2px $white, 0 0 1px $c-glow;
 }
-text, input {
+text, input, button{
   font-family: $ff-values;
 }
 body {
@@ -72,14 +72,14 @@ nav {
   font-size: 1rem;
   position: relative;
   top: 2em;
-  @include bp-500 {
+  @include bp-700 {
     font-size: 1rem;
     margin-top: 3em;
   }
 
 }
 .bottom-button {
-  #commit-calc {
+  #dist-calc, #burn-calc, #mgmt-calc {
     padding: 20px;
     z-index: 100;
     width: 80vw;
@@ -92,12 +92,12 @@ nav {
     margin: 0 auto 2.5em;
     cursor: pointer;
     transition: background-color 3s;
-    @include bp-500 {
+    @include bp-700 {
       margin-top: 3em;
       width: 30vw;
     }
   }
-  #commit-calc:hover {
+  #dist-calc:hover, #burn-calc:hover, #mgmt-calc:hover {
     box-shadow: inset $c-alert 0 0 50px 1px;
   }
 }
@@ -121,7 +121,7 @@ nav {
           cursor: pointer;
           border-radius: 0;
           width: 65vw;
-          @include bp-500 {
+          @include bp-700 {
             width: 30vw;
           }
         }
@@ -172,7 +172,7 @@ nav {
   align-items: center;
   margin: 0 auto 1em;
   padding: 0 1.5em;
-  @include bp-500 {
+  @include bp-700 {
     flex-direction: row;
     padding: 0;
     justify-content: center;
@@ -180,7 +180,7 @@ nav {
 
   div {
     margin-bottom: 0.5em;
-    @include bp-500 {
+    @include bp-700 {
       margin-bottom: 2em;
       width: 40vw;
       height: 2em;
@@ -193,7 +193,7 @@ nav {
   div:nth-child(even) {
     // flex: 0 0 30%;
     text-align: right;
-    @include bp-500 {
+    @include bp-700 {
       text-align: center;
     }
     margin-bottom: 2em;
@@ -201,7 +201,7 @@ nav {
 
     input {
       font-size: 1.5em;
-      @include bp-500 {
+      @include bp-700 {
         font-size: 1.5em;
         width: 100%;
       }

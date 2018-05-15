@@ -21,38 +21,40 @@
         <div id="burn-tab" class="nav-btn">Burn</div>
         <div id="mgmt-tab" class="nav-btn">Management</div>
     </nav>
+    <!-- CRUD TESTING -->
+
+    <script>
+      console.log("Fuelmass: <%=data.fuelmass %>");
+      console.log("<%= data %>");
+    </script>
+
+    <!-- <form id="fuelForm" name ="fuelForm" action="">
+      <input type="hidden" name="rowId" value="fuelmass" />
+      <span>Fuelmass:</span>
+      <input id="fuel" name="fuelVal" autocomplete="off" value="<%=data.fuelmass %>"/><button>Update</button>
+    </form> -->
+
+    <!-- <form id="createForm" name ="createForm" action="">
+      <span>Enter name: </span>
+      <input id="createRowName" name="createRowName" autocomplete="off" />
+      <br />
+      <span>Enter value: </span>
+      <input id="createRowVal" name="createRowVal" autocomplete="off" />
+      <button>Post</button>
+    </form>
+
+    <form id="delForm" name ="delForm" action="">
+      <span>Delete a row: </span>
+      <input id="rowName" name="rowName" autocomplete="off" /><button>Delete</button>
+    </form> -->
+
+    <!-- END TESTING -->
   <div id="wrapper">
-    <section class="content" id="dist-cont">
+      <!-- START INPUT -->
 
-      <!-- CRUD TESTING -->
-
-      <!-- <script>
-        console.log("Fuelmass: <%=data.fuelmass %>");
-      </script> -->
-
-      <!-- <form id="fuelForm" name ="fuelForm" action="">
-        <input type="hidden" name="rowId" value="fuelmass" />
-        <span>Fuelmass:</span>
-        <input id="fuel" name="fuelVal" autocomplete="off" value="<%=data.fuelmass %>"/><button>Update</button>
-      </form> -->
-
-      <!-- <form id="createForm" name ="createForm" action="">
-        <span>Enter name: </span>
-        <input id="createRowName" name="createRowName" autocomplete="off" />
-        <br />
-        <span>Enter value: </span>
-        <input id="createRowVal" name="createRowVal" autocomplete="off" />
-        <button>Post</button>
-      </form>
-
-      <form id="delForm" name ="delForm" action="">
-        <span>Delete a row: </span>
-        <input id="rowName" name="rowName" autocomplete="off" /><button>Delete</button>
-      </form> -->
-
-      <!-- END TESTING -->
-
-      <form class="calc-form">
+      <!--  START DIST INPUT -->
+      <section class="content distance" id="dist-cont">
+      <form class="input-holder" id="calc-form">
         <div class="calculator" style="">
 
           <div class="input">
@@ -100,75 +102,145 @@
       </div>
     </form>
     <div class="bottom-button">
-      <input type="button" id="commit-calc" value="Commit"></input>
+      <input type="button" id="dist-calc" value="Commit"></input>
     </div>
   </section>
+  <!--  END DIST INPUT -->
 
-  <section class="results-holder">
-    <div class="results" id="dist-results">
+  <!--  START BURN INPUT -->
+  <section class="content burn" id="burn-cont" style="display: none">
+    <div class="calculator" style="">
+
+    <div class="input">
+        <div class="input-vals">
+        <div>
+          <span class="description">Acceleration in g:</span>
+        </div>
+        <div>
+            <input type="text" id="burn-accel" value="0.33333333333333" required>
+        </div>
+        <div>
+          <span class="description">Distance to Travel in AU:</span>
+        </div>
+        <div>
+            <input type="text" id="burn-dist" value="30" required>
+        </div>
+        <div>
+          <span class="description">Exhaust Velocity /c</span>
+        </div>
+        <div>
+            <input type="text" id="burn-exhaust" value = "0.1" required>
+        </div>
+        <div>
+          <span class="description">Dry ship mass</span>
+        </div>
+        <div>
+            <input type="text" id="burn-ship-mass" value="1" required>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bottom-button">
+    <input type="button" id="burn-calc" value="Commit"></input>
+  </div>
+  </section>
+  <!--  END BURN INPUT -->
+
+  <!--  START MGMT INPUT -->
+  <section class="content mgmt" id="mgmt-cont" style="display: none">
+    <div class="calculator" style="">
+
+    <div class="input">
+        <div class="input-vals">
+        <div>
+          <span class="description">Fuel mass:</span>
+        </div>
+        <div>
+            <input type="text" id="fuel-mass" value="<%=data.fuelmass %>" required>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bottom-button">
+    <input type="button" id="mgmt-calc" value="Commit"></input>
+  </div>
+  </section>
+  <!--  END MGMT INPUT -->
+
+                            <!-- INPUT END -->
+  <!-- ============================================================== -->
+                          <!-- RESULTS START -->
+
+  <!--  START DIST RESULTS -->
+  <section class="results-holder distance" id="dist-results">
+    <div class="results">
       <!-- <h2>Calculated Values</h2> -->
       <div class="output" id="dist-calcs">
         <div>
           <span>Initial Delta v (m/s)</span>
         </div>
         <div>
-          <input type="text" id="acc-init-delta">
+          <input type="text" id="acc-init-delta" readonly>
         </div>
         <div>
           <span>Time of burn (m)</span>
         </div>
         <div>
-          <input type="text" id="acc-time-burn">
+          <input type="text" id="acc-time-burn" readonly>
         </div>
         <div>
           <span>Distance travelled (km)</span>
         </div>
         <div>
-          <input type="text" id="acc-dist-travel">
+          <input type="text" id="acc-dist-travel" readonly>
         </div>
 
         <div>
           <span>Braking Delta v (m/s)</span>
         </div>
         <div>
-          <input type="text" id="decel-brake-delta">
+          <input type="text" id="decel-brake-delta" readonly>
         </div>
         <div>
           <span>Time of burn (m)</span>
         </div>
         <div>
-          <input type="text" id="decel-time-burn">
+          <input type="text" id="decel-time-burn" readonly>
         </div>
         <div>
           <span>Distance travelled (km)</span>
         </div>
         <div>
-          <input type="text" id="decel-dist-travel">
+          <input type="text" id="decel-dist-travel" readonly>
         </div>
 
         <div>
           <span>Distance travelled at velocity v-one (km)</span>
         </div>
         <div>
-          <input type="text" id="total-dist-travel">
+          <input type="text" id="total-dist-travel" readonly>
         </div>
         <div>
           <span>Time at desired velocity v-one (hours)</span>
         </div>
         <div>
-          <input type="text" id="total-vel">
+          <input type="text" id="total-vel" readonly>
         </div>
         <div>
           <span>Total time of travel (hours)</span>
         </div>
         <div>
-          <input type="text" id="total-travel-hours">
+          <input type="text" id="total-travel-hours" readonly>
         </div>
         <div>
           <span>Total time of travel (weeks)</span>
         </div>
         <div>
-          <input type="text" id="total-travel-weeks">
+          <input type="text" id="total-travel-weeks" readonly>
         </div>
 
       </div>
@@ -181,5 +253,70 @@
 
   </div>
 </section>
+<!--  END DIST RESULTS -->
+
+
+<!--  START BURN RESULTS -->
+<section class="results-holder burn" id="burn-results">
+  <div class="results">
+    <!-- <h2>Calculated Values</h2> -->
+    <div class="output" id="burn-calcs">
+      <div>
+        <span>Acceleration in m^-1</span>
+      </div>
+      <div>
+        <input type="text" id="accel-result" readonly>
+      </div>
+      <div>
+        <span>Earth Distance in m</span>
+      </div>
+      <div>
+        <input type="text" id="earthdist-result" readonly>
+      </div>
+      <div>
+        <span>Earth Time in m</span>
+      </div>
+      <div>
+        <input type="text" id="earthtime-result" readonly>
+      </div>
+      <div>
+        <span>Maximum Speed</span>
+      </div>
+      <div>
+        <input type="text" id="maxspeed-result" readonly>
+      </div>
+      <div>
+        <span>Maximum Rapidity</span>
+      </div>
+      <div>
+        <input type="text" id="maxrapidity-result" readonly>
+      </div>
+      <div>
+        <span>Proper (Crew) Time</span>
+      </div>
+      <div>
+        <input type="text" id="propertime-result" readonly>
+      </div>
+      <div>
+        <span>Fuel Use</span>
+      </div>
+      <div>
+        <input type="text" id="fueluse-result" readonly>
+      </div>
+    </div>
+
+
+    <div class="return-button">
+      <input type="button" id="burn-return" value="Return"></input>
+    </div>
+
+
+</div>
+</section>
+<!--  END BURN RESULTS -->
+
+<!-- RESULTS END -->
+
+</div>
 </body>
 </html>
