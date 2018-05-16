@@ -9,7 +9,7 @@
         $("#mgmt-tab").removeClass('selected');
         $(".content.distance").show();
         $(".burn").hide();
-        $(".management").hide();
+        $(".mgmt").hide();
       });
       $("#burn-tab").click(function(e) {
         $(this).addClass('selected');
