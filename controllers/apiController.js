@@ -91,3 +91,51 @@ app.delete('/api/v1/delete', urlencodedParser, function(req, res) {
 //static route - style, js, images, etc
 app.use('/assets', express.static('./public'));
 };
+
+
+// CRUD controls to be used on front-end.
+
+// $('#createForm').submit(function(e){
+//   console.log('Creating:');
+//   console.log($('#createForm').serialize());
+//   e.preventDefault();
+//   $.ajax({
+//     url:'/api/v1/post/',
+//     type:'post',
+//     data:$('#createForm').serialize(),
+//     success:function(){
+//       console.log('success');
+//     return false;
+//     }
+//   });
+// });
+
+// $('#delForm').submit(function(e){
+//   console.log('Deleting:');
+//   console.log($('#delForm').serialize());
+//   e.preventDefault();
+//   $.ajax({
+//     url:'/api/v1/delete/',
+//     type:'delete',
+//     data:$('#delForm').serialize(),
+//     success:function(){
+//       console.log('success');
+//     return false;
+//     }
+//   });
+// });
+//
+// $('#fuelForm').submit(function(e){
+//     console.log('Submitted: ');
+//     console.log($('#fuelForm').serialize());
+//   e.preventDefault();
+//   $.ajax({
+//   url:'/api/v1/put/',
+//   type:'put',
+//   data:$('#fuelForm').serialize(),
+//   success:function(){
+//     console.log('success');
+//   return false;
+//   }
+//   });
+// });

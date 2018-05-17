@@ -8,6 +8,7 @@
         $('#burn-tab').removeClass('selected');
         $("#mgmt-tab").removeClass('selected');
         $(".content.distance").show();
+        $(".content.distance .bottom-button").show();
         $(".burn").hide();
         $(".mgmt").hide();
       });
@@ -67,8 +68,9 @@
           $('.burn .bottom-button').show();
       });
 
-      timerFunc(3000, true, '.bottom-button #commit-calc', 'background-color', 'rgba(255, 0, 0, 0.2)', 'rgba(200, 0, 0, 0)');
-      timerFunc(3000, true, '.bottom-button #burn-calc', 'background-color', 'rgba(255, 0, 0, 0.2)', 'rgba(200, 0, 0, 0)');
+      timerFunc(3000, true, '.bottom-button #dist-calc', 'background-color', 'rgba(150, 240, 255, 0.2)', 'rgba(0, 0, 200, 0)');
+      timerFunc(3000, true, '.bottom-button #burn-calc', 'background-color', 'rgba(150, 240, 255, 0.2)', 'rgba(0, 0, 200, 0)');
+      timerFunc(3000, true, '.bottom-button #mgmt-calc', 'background-color', 'rgba(255, 0, 0, 0.2)', 'rgba(200, 0, 0, 0)');
 
       $('#mgmt-calc').click(function(){
         console.log('Creating:');
@@ -83,60 +85,10 @@
           }
         });
       });
-
-
-      // $('#createForm').submit(function(e){
-      //   console.log('Creating:');
-      //   console.log($('#createForm').serialize());
-      //   e.preventDefault();
-      //   $.ajax({
-      //     url:'/api/v1/post/',
-      //     type:'post',
-      //     data:$('#createForm').serialize(),
-      //     success:function(){
-      //       console.log('success');
-      //     return false;
-      //     }
-      //   });
-      // });
-
-      // $('#delForm').submit(function(e){
-      //   console.log('Deleting:');
-      //   console.log($('#delForm').serialize());
-      //   e.preventDefault();
-      //   $.ajax({
-      //     url:'/api/v1/delete/',
-      //     type:'delete',
-      //     data:$('#delForm').serialize(),
-      //     success:function(){
-      //       console.log('success');
-      //     return false;
-      //     }
-      //   });
-      // });
-      //
-      // $('#fuelForm').submit(function(e){
-      //     console.log('Submitted: ');
-      //     console.log($('#fuelForm').serialize());
-      //   e.preventDefault();
-      //   $.ajax({
-      //   url:'/api/v1/put/',
-      //   type:'put',
-      //   data:$('#fuelForm').serialize(),
-      //   success:function(){
-      //     console.log('success');
-      //   return false;
-      //   }
-      //   });
-      // });
     });
-
-
 
     // random timed blur effect
     // timerFunc(true, '0.5px');
-
-
 
 })(jQuery);// JavaScript Document
 
